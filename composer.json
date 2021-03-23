@@ -1,5 +1,6 @@
 {
     "name": "jazzman/cookie-setter",
+    "license": "MIT",
     "authors": [
         {
             "name": "Vasyl Sokolyk",
@@ -15,7 +16,7 @@
     },
     "require": {
         "php": ">=7.1",
-        "roots/wordpress": "^5.7"
+        "roots/wordpress": "^5"
     },
     "require-dev": {
         "dg/composer-cleaner": "^2.2",
