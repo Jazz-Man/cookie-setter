@@ -16,7 +16,7 @@
     },
     "require": {
         "php": ">=7.1",
-        "roots/wordpress": "^5"
+        "roots/wordpress": "^6"
     },
     "require-dev": {
         "dg/composer-cleaner": "^2.2",
