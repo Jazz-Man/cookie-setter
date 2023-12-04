@@ -1,5 +1,6 @@
 {
     "name": "jazzman/cookie-setter",
+    "type": "wordpress-muplugin",
     "license": "MIT",
     "authors": [
         {
@@ -12,31 +13,19 @@
         "preferred-install": "dist",
         "optimize-autoloader": true,
         "classmap-authoritative": true,
-        "apcu-autoloader": true,
-        "allow-plugins": {
-            "roots/wordpress-core-installer": true
-        }
+        "apcu-autoloader": true
     },
     "require": {
         "php": "^8.1"
     },
     "require-dev": {
         "jazzman/php-cs-fixer-rules": "^0.2.0",
-        "roave/security-advisories": "@dev",
-        "roots/wordpress": "^6.4"
-    },
-    "extra": {
-        "installer-paths": {
-            "vendor/wp/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-            "vendor/wp/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-            "vendor/wp/wp-content/themes/{$name}/": ["type:wordpress-theme"]
-        },
-        "wordpress-install-dir": "vendor/wp"
+        "jetbrains/phpstorm-attributes": "@dev",
+        "roave/security-advisories": "@dev"
     },
     "autoload": {
         "psr-4": {
-            "JazzMan\\CookieSetter\\":"src"
+            "JazzMan\\Cookie\\":"src"
         }
-    },
-    "description": ""
+    }
 }
