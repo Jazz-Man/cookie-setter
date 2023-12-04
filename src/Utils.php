@@ -56,6 +56,10 @@ class Utils {
      *
      *     Utils::combine([['foo', 'abc'], ['bar']])
      *     // => ['foo' => 'abc', 'bar' => true]
+     *
+     * @param string[] $parts
+     *
+     * @return array<string,mixed>
      */
     public static function combine( array $parts ): array {
         $assoc = [];
@@ -69,6 +73,12 @@ class Utils {
         return $assoc;
     }
 
+    /**
+     * @param array<array-key,mixed> $matches
+     * @param string $separators
+     * @param bool $first
+     * @return array|string[]
+     */
     private static function groupParts( array $matches, string $separators, bool $first = true ): array {
         $separator = $separators[0];
         $separators = substr( $separators, 1 ) ?: '';

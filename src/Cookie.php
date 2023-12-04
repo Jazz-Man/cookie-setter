@@ -126,10 +126,8 @@ class Cookie {
      * Creates a cookie copy with SameSite attribute.
      *
      * @param string|null $sameSite
-     *
-     * @return Cookie
      */
-    public function withSameSite( #[ExpectedValues( values: self::SAMESITE_MAP )] ?string $sameSite ): static {
+    public function withSameSite( #[ExpectedValues( values: self::SAMESITE_MAP )] ?string $sameSite ): self {
         if ( '' === $sameSite ) {
             $sameSite = null;
         } elseif ( null !== $sameSite ) {
@@ -149,7 +147,7 @@ class Cookie {
     /**
      * Creates cookie from raw header string.
      */
-    public static function fromString( string $cookie, bool $decode = false ): static {
+    public static function fromString( string $cookie, bool $decode = false ): self {
         $data = [
             'expires' => 0,
             'path' => '/',
@@ -162,10 +160,25 @@ class Cookie {
         ];
 
         $parts = Utils::split( $cookie, ';=' );
+
+        /** @var string[] $part */
         $part = array_shift( $parts );
 
         $name = $decode ? urldecode( $part[0] ) : $part[0];
         $value = isset( $part[1] ) ? ( $decode ? urldecode( $part[1] ) : $part[1] ) : null;
+
+        /** @var array{
+         *     expires: int|string|DateTimeInterface,
+         *     max-age: int|string,
+         *     path: string|null,
+         *     domain: string|null,
+         *     secure: bool|null,
+         *     httponly: bool,
+         *     raw: bool,
+         *     samesite: string|null,
+         *     partitioned: bool,
+         * } $data
+         */
 
         $data = Utils::combine( $parts ) + $data;
         $data['expires'] = self::expiresTimestamp( $data['expires'] );
@@ -174,7 +187,18 @@ class Cookie {
             $data['expires'] = time() + (int) $data['max-age'];
         }
 
-        return new static( $name, $value, $data['expires'], $data['path'], $data['domain'], $data['secure'], $data['httponly'], $data['raw'], $data['samesite'], $data['partitioned'] );
+        return new self(
+            $name,
+            $value,
+            $data['expires'],
+            $data['path'],
+            $data['domain'],
+            $data['secure'],
+            $data['httponly'],
+            $data['raw'],
+            $data['samesite'],
+            $data['partitioned']
+        );
     }
 
     /**
@@ -230,7 +254,7 @@ class Cookie {
     public function getMaxAge(): int {
         $maxAge = $this->expire - time();
 
-        return max(0, $maxAge);
+        return max( 0, $maxAge );
     }
 
     /**
