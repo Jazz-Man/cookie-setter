@@ -1,0 +1,41 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Offset 'max\\-age' on array\\{expires\\: int, max\\-age\\: int\\|string, path\\: string\\|null, domain\\: string\\|null, secure\\: bool\\|null, httponly\\: bool, raw\\: bool, samesite\\: string\\|null, \\.\\.\\.\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function rawurlencode expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Cannot access offset 'separator' on mixed\\.$#"
+			count: 2
+			path: src/Utils.php
+
+		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 2
+			path: src/Utils.php
+
+		-
+			message: "#^Method JazzMan\\\\Cookie\\\\Utils\\:\\:groupParts\\(\\) should return array\\<string\\> but returns array\\<int, array\\<string\\>\\|string\\>\\.$#"
+			count: 1
+			path: src/Utils.php
+
+		-
+			message: "#^Method JazzMan\\\\Cookie\\\\Utils\\:\\:split\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils.php
+
+		-
+			message: "#^Method JazzMan\\\\Cookie\\\\Utils\\:\\:unquote\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: src/Utils.php
+
+		-
+			message: "#^Parameter \\#1 \\$s of static method JazzMan\\\\Cookie\\\\Utils\\:\\:unquote\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Utils.php

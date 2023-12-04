@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+  <file src="src/Cookie.php">
+    <MixedArgumentTypeCoercion>
+      <code>$parts</code>
+    </MixedArgumentTypeCoercion>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->getValue()]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->getDomain()]]></code>
+      <code><![CDATA[$this->getSameSite()]]></code>
+      <code><![CDATA[$this->isRaw() ? $this->getValue() : rawurlencode( $this->getValue() )]]></code>
+    </PossiblyNullOperand>
+  </file>
+  <file src="src/Utils.php">
+    <MixedArgument>
+      <code>$match[0]</code>
+      <code>$matches[0][0]</code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$match['separator']]]></code>
+      <code>$match[0]</code>
+      <code>$matches[0][0]</code>
+    </MixedArrayAccess>
+    <MixedAssignment>
+      <code>$match</code>
+      <code>$match</code>
+      <code>$partMatches[$i][]</code>
+    </MixedAssignment>
+    <PossiblyUndefinedArrayOffset>
+      <code>$parts[$i]</code>
+    </PossiblyUndefinedArrayOffset>
+  </file>
+</files>
