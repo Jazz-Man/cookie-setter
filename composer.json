@@ -1,6 +1,5 @@
 {
     "name": "jazzman/cookie-setter",
-    "type": "wordpress-muplugin",
     "license": "MIT",
     "authors": [
         {
