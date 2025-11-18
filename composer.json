@@ -18,7 +18,7 @@
         "php": "^8.2"
     },
     "require-dev": {
-        "jazzman/php-cs-fixer-rules": "^0.2.0",
+        "jazzman/php-cs-fixer-rules": "^0.3.0",
         "jetbrains/phpstorm-attributes": "@dev",
         "roave/security-advisories": "@dev"
     },
